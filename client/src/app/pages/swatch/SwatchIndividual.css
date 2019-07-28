@@ -1,23 +1,22 @@
-#homeContainer {
+#swatchIndvContainer {
+  flex: 1 1 calc(25% - 15px);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
-.homeBox {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  margin: 10px;
+.swatchIndvColorDisplay {
+  min-width: 100px;
+  min-height: 100px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.homeHeader{
-  flex: 1;
-  font-size: 4em;
-  margin: 30px;
-  border-bottom: var(--dev-borders) 3px solid;
+
+.swatchIndvColorTextContainer {
+  text-align: center;
+  padding: 10px 20px;
 }
-.homeText{
-  font-size: 1.5em;
+.swatchIndvColorText {
+  font-size: 1em;
 }

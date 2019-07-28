@@ -3,15 +3,20 @@ import './SwatchIndividual.css';
 
 class SwatchIndividual extends Component {
   render() {
+    let hexStyle1 = {
+      background: this.props.swatch.hex1
+    }
+
+
     return (
-      <div id="homeContainer">
-        <button className="homeBox">
-          <div>{this.props.swatch.hex1}</div>
-          <div>{this.props.swatch.hex2}</div>
-          <div>{this.props.swatch.hex3}</div>
-          <div>{this.props.swatch.hex4}</div>
-          <div>{this.props.swatch.hex5}</div>
-        </button>
+      <div id="swatchIndvContainer">
+
+          <div className="swatchIndvColorDisplay" style={hexStyle1}>
+          </div>
+          <div className="swatchIndvColorTextContainer">
+            <p className="swatchIndvColorText">Cinque Terre</p>
+          </div>
+
       </div>
     );
   }

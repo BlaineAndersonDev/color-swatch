@@ -23,8 +23,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: baseline;
-    min-height: 100%;
+    align-items: center;
+    height: 100%;
     width: 100%;
     flex: 1 1 calc(80% - 15px);
   }
