@@ -1,0 +1,31 @@
+@media screen and (min-width: 1000px) {
+  #swatchHomeContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: baseline;
+    min-height: 100%;
+    width: 100%;
+  }
+  #SwatchHomeSidebarContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    min-height: 100%;
+    width: 100%;
+    flex: 1 1 calc(10% - 15px);
+  }
+  #SwatchHomeBoxContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    flex: 1 1 calc(80% - 15px);
+  }
+}

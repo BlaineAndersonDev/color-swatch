@@ -15,7 +15,7 @@ swatchRouter.get('/', errorWrapper(async (req, res, next) => {
     .catch((err) => { throw new Error(err) });
 
     // Log Object for debugging.
-    console.log(readResults)
+    // console.log(readResults)
 
     // Return HTTP status and JSON results object.
     return res.status(200).json({
@@ -24,7 +24,59 @@ swatchRouter.get('/', errorWrapper(async (req, res, next) => {
       results: readResults
     });
 }));
-//
+
+// ======================================
+// Gets more Swatches wth lower Ids.
+// ROUTE: POST `api/1.0/swatches/previous`
+swatchRouter.get('/previous', errorWrapper(async (req, res, next) => {
+  const prevBottomSwatchId = Number(req.query.topSwatchId) - 1; // 12
+  const prevTopSwatchId = Number(prevBottomSwatchId) - 11; // 24
+
+  const readResults = await knex('swatches')
+    .where('swatchId', '>=', prevTopSwatchId)
+    .andWhere('swatchId', '<=', prevBottomSwatchId)
+    .select('*')
+    .orderBy('swatchId', 'asc')
+    .catch((err) => { throw new Error(err) });
+
+  // Log Object for debugging.
+  // console.log('TEST')
+  // console.log(readResults)
+
+  // Return HTTP status and JSON results object.
+  return res.status(200).json({
+    success: true,
+    message: 'API returned list of all swatches',
+    results: readResults
+  });
+}));
+
+// ======================================
+// Gets more Swatches wth higher Ids.
+// ROUTE: POST `api/1.0/swatches/forward`
+swatchRouter.get('/forward', errorWrapper(async (req, res, next) => {
+  const nextTopSwatchId = Number(req.query.bottomSwatchId) + 1; // 13
+  const nextBottomSwatchId = Number(nextTopSwatchId) + 11; // 24
+
+  const readResults = await knex('swatches')
+    .where('swatchId', '>=', nextTopSwatchId)
+    .andWhere('swatchId', '<=', nextBottomSwatchId)
+    .select('*')
+    .orderBy('swatchId', 'asc')
+    .catch((err) => { throw new Error(err) });
+
+  // Log Object for debugging.
+  // console.log('TEST')
+  // console.log(readResults)
+
+  // Return HTTP status and JSON results object.
+  return res.status(200).json({
+    success: true,
+    message: 'API returned list of all swatches',
+    results: readResults
+  });
+}));
+
 // // ======================================
 // // Get individual Swatch.
 // // ROUTE: GET `api/swatches/:swatchId`
