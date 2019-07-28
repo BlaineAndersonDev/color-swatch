@@ -5,14 +5,22 @@ exports.seed = function(knex, Promise) {
     // Inserts seed entries
     return knex('swatchs').insert([
       {
-        name: 'COLORSET',
         category: 'COLOR',
+        hex1: 'Hex',
+        hex2: 'Hex',
+        hex3: 'Hex',
+        hex4: 'Hex',
+        hex5: 'Hex',
         createdAt: '2019-06-19T21:13:40.826Z',
         updatedAt: '2019-06-19T21:13:40.826Z'
       },
       {
-        name: 'COLORSET',
         category: 'COLOR',
+        hex1: 'Hex',
+        hex2: 'Hex',
+        hex3: 'Hex',
+        hex4: 'Hex',
+        hex5: 'Hex',
         createdAt: '2019-06-19T21:13:40.826Z',
         updatedAt: '2019-06-19T21:13:40.826Z'
       }
