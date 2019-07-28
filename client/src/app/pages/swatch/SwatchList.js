@@ -71,13 +71,25 @@ class SwatchList extends Component {
       )
     };
 
+    let swatchPagination;
+    if (this.state.topSwatchId === 1 || this.state.topSwatchId === 0) {
+      swatchPagination = (
+        <div id="SwatchPaginationContainer">
+          <button onClick={(event) => this.page(event, false)}>Next </button>
+        </div>
+      ) // End Display
+    } else if (this.state.bottomSwatchId >= 24) {
+      swatchPagination = (
+        <div id="SwatchPaginationContainer">
+          <button onClick={(event) => this.page(event, true)}>Previous </button>
+        </div>
+      ) // End Display
+    }
+
     return (
       <div id="swatchListContainer">
         {swatchDisplay}
-
-        <button onClick={(event) => this.page(event, true)}>Previous </button>
-        <button onClick={(event) => this.page(event, false)}>Next </button>
-
+        {swatchPagination}
       </div>
     );
   }
