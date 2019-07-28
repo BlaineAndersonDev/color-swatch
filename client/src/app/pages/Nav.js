@@ -7,16 +7,17 @@ class Nav extends Component {
     return (
     <div id="navContainer">
 
-      <div className="navBox"></div>
-
-      <div className="navBox">
+      <div className="navBox logoBox">
         <Link to={'./'} className="navLink">
-          Home
-        </Link>
-        <Link to={'./swatch'} className="navLink">
-          Swatches
+          <img
+            src="images/logo-symbol.svg"
+            alt="Helping Humans Logo"
+            className="logoIcon"
+          />
         </Link>
       </div>
+
+      <div className="navBox"></div>
 
       <div className="navBox"></div>
 

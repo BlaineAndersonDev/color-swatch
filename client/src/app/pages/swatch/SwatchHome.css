@@ -1,23 +1,47 @@
-#homeContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.homeBox {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  margin: 10px;
-}
-.homeHeader{
-  flex: 1;
-  font-size: 4em;
-  margin: 30px;
-  border-bottom: var(--dev-borders) 3px solid;
-}
-.homeText{
-  font-size: 1.5em;
+@media screen and (min-width: 1000px) {
+  #swatchHomeContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: baseline;
+  }
+  #SwatchHomeNavContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    flex: 1 1 calc(10% - 15px);
+  }
+  #SwatchHomeBoxContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    flex: 1 1 calc(80% - 15px);
+  }
+  .SwatchHomeBox {
+    flex: 1 0 calc(20% - 15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 20px;
+    max-height: 175px;
+    max-width: 125px;
+    min-height: 125px;
+    min-width: 75px;
+    border: red solid 1px;
+  }
+  .homeHeader{
+    flex: 1;
+    font-size: 4em;
+    margin: 30px;
+    border-bottom: var(--dev-borders) 3px solid;
+  }
+  .homeText{
+    font-size: 1.5em;
+  }
 }

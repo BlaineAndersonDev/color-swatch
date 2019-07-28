@@ -38,31 +38,27 @@ class SwatchHome extends Component {
     let swatchDisplay;
     if (this.state.swatches.length >= 1) {
       swatchDisplay = (
-        <div id="homeBox">
+        <div id="SwatchHomeBoxContainer">
           {this.state.swatches.map((swatch, index) =>
             <SwatchIndividual
-              key={swatch.id}
+              key={index}
               swatch={swatch}
             />
           )}
         </div> // End Display
       )
-    } else {
-      // Failure to load Swatches from API will offer a button in rare cases.
-      swatchDisplay = (
-        <div className="homeBox">
-          <button
-            className="homeText"
-            onClick={this.getSwatches}>
-            Get Swatches From API?
-          </button>
-        </div>
+    };
+
+      let navDisplay = (
+        <div id="SwatchHomeNavContainer">
+          TEST
+          test
+        </div> // End Display
       )
-    }
+
     return (
-      <div id="homeContainer">
-        <h1 className="homeBox homeHeader">Hello World!</h1>
-        <p className="homeBox homeText">This is the SwatchHome page.</p>
+      <div id="swatchHomeContainer">
+        {navDisplay}
         {swatchDisplay}
       </div>
     );
