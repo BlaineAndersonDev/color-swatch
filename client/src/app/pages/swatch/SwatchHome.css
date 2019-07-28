@@ -5,13 +5,17 @@
     flex-wrap: nowrap;
     justify-content: center;
     align-items: baseline;
+    min-height: 100%;
+    width: 100%;
   }
-  #SwatchHomeNavContainer {
+  #SwatchHomeSidebarContainer {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: baseline;
+    min-height: 100%;
+    width: 100%;
     flex: 1 1 calc(10% - 15px);
   }
   #SwatchHomeBoxContainer {
@@ -20,28 +24,8 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: baseline;
+    min-height: 100%;
+    width: 100%;
     flex: 1 1 calc(80% - 15px);
-  }
-  .SwatchHomeBox {
-    flex: 1 0 calc(20% - 15px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    margin: 20px;
-    max-height: 175px;
-    max-width: 125px;
-    min-height: 125px;
-    min-width: 75px;
-    border: red solid 1px;
-  }
-  .homeHeader{
-    flex: 1;
-    font-size: 4em;
-    margin: 30px;
-    border-bottom: var(--dev-borders) 3px solid;
-  }
-  .homeText{
-    font-size: 1.5em;
   }
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './SwatchHome.css';
 import axios from 'axios';
 import SwatchIndividual from './SwatchIndividual.js';
+import SwatchSidebar from './SwatchSidebar.js';
 
 class SwatchHome extends Component {
   constructor(props){
@@ -49,16 +50,15 @@ class SwatchHome extends Component {
       )
     };
 
-      let navDisplay = (
-        <div id="SwatchHomeNavContainer">
-          TEST
-          test
+      let sidebarDisplay = (
+        <div id="SwatchHomeSidebarContainer">
+          <SwatchSidebar />
         </div> // End Display
       )
 
     return (
       <div id="swatchHomeContainer">
-        {navDisplay}
+        {sidebarDisplay}
         {swatchDisplay}
       </div>
     );

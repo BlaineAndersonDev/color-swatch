@@ -1,0 +1,79 @@
+#swatchSidebarContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 100vh;
+  width: 100%;
+  box-shadow: 1px 1px 5px gray;
+  background: lightgray;
+}
+
+/* Random Button */
+#swatchSidebarRandomContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 25px;
+}
+.sidebarRandom{
+  width: 70%;
+  max-width: 150px;
+  text-align: center;
+	border: 1px gray solid;
+  border-radius: 10px;
+  background: white;
+	cursor: pointer;
+  padding: 5px 10px 5px 10px;
+  font-size: 1em;
+  transition: all 0.35s ease-in-out;
+}
+.sidebarRandom:focus, .sidebarRandom:hover {
+  background: gray;
+  border: 1px white solid;
+  color: white;
+}
+
+/* Color Buttons */
+#swatchSidebarColorsContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.sidebarColor{
+	border: none;
+	cursor: pointer;
+  margin: 10px;
+  font-size: 1em;
+  color: black;
+}
+.sbcRed:focus, .sbcRed:hover{
+  color: red;
+}
+.sbcOrange:focus, .sbcOrange:hover{
+  color: orange;
+}
+.sbcYellow:focus, .sbcYellow:hover{
+  color: GoldenRod;
+}
+.sbcGreen:focus, .sbcGreen:hover{
+  color: green;
+}
+.sbcBlue:focus, .sbcBlue:hover{
+  color: blue;
+}
+.sbcPurple:focus, .sbcPurple:hover{
+  color: purple;
+}
+.sbcBrown:focus, .sbcBrown:hover{
+  color: saddlebrown;
+}
+.sbcGray:focus, .sbcGray:hover{
+  color: darkgray;
+}
