@@ -4,8 +4,8 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
-    align-items: baseline;
-    min-height: 100%;
+    align-items: center;
+    height: 100%;
     width: 100%;
   }
   #SwatchHomeSidebarContainer {
@@ -13,12 +13,12 @@
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: baseline;
-    min-height: 100%;
+    align-items: center;
+    height: 100%;
     width: 100%;
     flex: 1 1 calc(10% - 15px);
   }
-  #SwatchHomeBoxContainer {
+  #SwatchHomeListContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

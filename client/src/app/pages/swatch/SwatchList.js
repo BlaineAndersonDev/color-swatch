@@ -8,8 +8,8 @@ class SwatchList extends Component {
     super(props);
     this.state = {
       swatches: [],
-      topSwatchId: 13,
-      bottomSwatchId: 24
+      topSwatchId: 1,
+      bottomSwatchId: 12
     };
   };
 
@@ -25,46 +25,35 @@ class SwatchList extends Component {
 
   // Async/Await Function: Retreives all 'swatches' from our API.
   getSwatches = async (top, bottom, previous) => {
-    if (previous === true) {
-      await axios.get(`/api/1.0/swatches/previous`, {
-        params: {
-          topSwatchId: top,
-          bottomSwatchId: bottom
-        }
+    await axios.get(`/api/1.0/swatches/test`, {
+      params: {
+        newTopSwatchId: top,
+        newBottomSwatchId: bottom
+      }
+    })
+    .catch(error => {
+      console.warn(error);
+    })
+    .then(response => {
+      this.setState({
+        swatches: response.data.results,
+        topSwatchId: top,
+        bottomSwatchId: bottom
       })
-      .catch(error => {
-        console.warn(error);
-      })
-      .then(response => {
-        this.setState({
-          swatches: response.data.results
-        })
-      })
-    } else {
-      await axios.get(`/api/1.0/swatches/forward`, {
-        params: {
-          topSwatchId: top,
-          bottomSwatchId: bottom
-        }
-      })
-      .catch(error => {
-        console.warn(error);
-      })
-      .then(response => {
-        this.setState({
-          swatches: response.data.results
-        })
-      })
-    };
+    })
   };
 
   // Async/Await Function: Retreives all 'swatches' from our API.
   page = async (event, previous) => {
-    if (previous) { // User pressed "Previous"
-      this.getSwatches(this.state.topSwatchId, this.state.bottomSwatchId, previous);
-    } else {
-      this.getSwatches(this.state.topSwatchId, this.state.bottomSwatchId, previous);
-    }
+    if (previous === true) { //previous
+      const newTopSwatchId = this.state.topSwatchId - 12;
+      const newBottomSwatchId = this.state.bottomSwatchId - 12;
+      this.getSwatches(newTopSwatchId, newBottomSwatchId, previous);
+    } else { //next
+      const newTopSwatchId = this.state.topSwatchId + 12;
+      const newBottomSwatchId = this.state.bottomSwatchId + 12;
+      this.getSwatches(newTopSwatchId, newBottomSwatchId, previous);
+    };
   };
 
   render() {
@@ -83,7 +72,7 @@ class SwatchList extends Component {
     };
 
     return (
-      <div id="swatchHomeContainer">
+      <div id="swatchListContainer">
         {swatchDisplay}
 
         <button onClick={(event) => this.page(event, true)}>Previous </button>
