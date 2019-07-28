@@ -26,7 +26,7 @@ swatchRouter.get('/', errorWrapper(async (req, res, next) => {
 }));
 
 // ======================================
-// Gets more Swatches wth higher Ids.
+// Gets defined selection of Swatches.
 // ROUTE: POST `api/1.0/swatches/forward`
 swatchRouter.get('/test', errorWrapper(async (req, res, next) => {
   const readResults = await knex('swatches')
@@ -48,30 +48,30 @@ swatchRouter.get('/test', errorWrapper(async (req, res, next) => {
   });
 }));
 
-// // ======================================
-// // Get individual Swatch.
-// // ROUTE: GET `api/swatches/:swatchId`
-// swatchRouter.get('/:swatchId', errorWrapper(async (req, res, next) => {
-//   // Throw Error if body contains swatchId.
-//   if (req.body.swatchId) { throw new Error('Request body cannot contain swatchId') };
-//
-//   // Knex database query.
-//   const readResults = await knex('swatches')
-//     .select('*')
-//     .where({ swatchId: req.params.swatchId })
-//     .catch((err) => { throw new Error(err) });
-//
-//   // Throw error if Swatch does not exist.
-//   if (!readResults[0]) { throw new Error("Swatch with provided swatchId does not exist") };
-//
-//   // Return HTTP status and JSON results object.
-//   return res.status(200).json({
-//     success: true,
-//     message: 'API returned Swatch with swatchId of ' + req.params.swatchId,
-//     results: readResults[0]
-//   });
-// }));
-//
+// ======================================
+// Get individual Swatch.
+// ROUTE: GET `api/swatches/:swatchId`
+swatchRouter.get('/:swatchId', errorWrapper(async (req, res, next) => {
+  // Throw Error if body contains swatchId.
+  if (req.body.swatchId) { throw new Error('Request body cannot contain swatchId') };
+
+  // Knex database query.
+  const readResults = await knex('swatches')
+    .select('*')
+    .where({ swatchId: req.params.swatchId })
+    .catch((err) => { throw new Error(err) });
+
+  // Throw error if Swatch does not exist.
+  if (!readResults[0]) { throw new Error("Swatch with provided swatchId does not exist") };
+
+  // Return HTTP status and JSON results object.
+  return res.status(200).json({
+    success: true,
+    message: 'API returned Swatch with swatchId of ' + req.params.swatchId,
+    results: readResults[0]
+  });
+}));
+
 // // ======================================
 // // Create individual Swatch.
 // // ROUTE: POST `api/swatches/`

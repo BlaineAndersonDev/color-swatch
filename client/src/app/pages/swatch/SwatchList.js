@@ -10,9 +10,7 @@ class SwatchList extends Component {
     this.state = {
       swatches: [],
       topSwatchId: 1,
-      bottomSwatchId: 12,
-      detailViewToggled: false,
-      detailViewSwatchIndex: null,
+      bottomSwatchId: 12
     };
   };
 
@@ -59,20 +57,6 @@ class SwatchList extends Component {
     };
   };
 
-  handleSwatchSelection = async (swatchIndex) => {
-    this.setState({
-      detailViewToggled: true,
-      detailViewSwatchIndex: swatchIndex
-    })
-  };
-
-  handleSwatchClear = async () => {
-    this.setState({
-      detailViewToggled: false,
-      detailViewSwatchIndex: null
-    })
-  };
-
   render() {
     let listDisplay;
     if (this.state.swatches.length >= 1) {
@@ -82,8 +66,7 @@ class SwatchList extends Component {
             <SwatchIndividual
               key={index}
               swatch={swatch}
-              swatchIndex={index}
-              handleSwatchSelection={this.handleSwatchSelection}
+              handleSwatchSelection={this.props.handleSwatchSelection}
             />
           )}
         </div> // End Display
@@ -105,26 +88,13 @@ class SwatchList extends Component {
         ) // End Display
       };
 
-    let viewDisplay;
-    if (this.state.detailViewToggled === true) {
-      {console.log(this.state.swatches[this.state.detailViewSwatchIndex])}
-      viewDisplay = ( //Detail View should be displayed
-          <SwatchDetail
-            swatch={this.state.swatches[this.state.detailViewSwatchIndex]}
-          />
-      ) // End Display
-    } else { //List View should be displayed
-      viewDisplay = (
+
+    return (
+      <div id="swatchListContainer">
         <div className="SwatchListBoxContainer">
           {listDisplay}
           {swatchPagination}
         </div>
-      )
-    }
-
-    return (
-      <div id="swatchListContainer">
-        {viewDisplay}
       </div>
     );
   }

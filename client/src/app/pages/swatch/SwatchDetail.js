@@ -10,19 +10,19 @@ class SwatchDetail extends Component {
   render() {
     let hexStyle1 = {
       background: this.props.swatch.hex1
-    }
+    };
     let hexStyle2 = {
       background: this.props.swatch.hex2
-    }
+    };
     let hexStyle3 = {
       background: this.props.swatch.hex3
-    }
+    };
     let hexStyle4 = {
       background: this.props.swatch.hex4
-    }
+    };
     let hexStyle5 = {
       background: this.props.swatch.hex5
-    }
+    };
 
     return (
       <div id="swatchDetailContainer">
@@ -33,6 +33,9 @@ class SwatchDetail extends Component {
             <p className="swatchDetailColorText">{this.props.swatch.hex3}</p>
           </div>
 
+          <div id="swatchPaginationContainer">
+            <div className="swatchPaginationButton" onClick={this.handleSwatchClear}>Clear Selection</div>
+          </div>
       </div>
     );
   }

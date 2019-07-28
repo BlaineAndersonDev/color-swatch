@@ -4,7 +4,7 @@ import './SwatchIndividual.css';
 class SwatchIndividual extends Component {
 
   handleSwatchSelection = async () => {
-    this.props.handleSwatchSelection(this.props.swatchIndex)
+    this.props.handleSwatchSelection(this.props.swatch.swatchId)
   };
 
   render() {
