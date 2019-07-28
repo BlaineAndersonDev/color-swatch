@@ -26,16 +26,19 @@ class SwatchDetail extends Component {
 
     return (
       <div id="swatchDetailContainer">
+        <div id="swatchDetailCurrentlySelectedContainer">
+          <div id="swatchDetailSelectedColorDisplay" style={hexStyle3}></div>
+          <div id="swatchDetailSelectedTextContainer">
+            <p id="swatchDetailSelectedText">{this.props.swatch.hex3}</p>
+          </div>
+        </div>
 
-          <div className="swatchDetailSelectionDisplay" style={hexStyle3}>
-          </div>
-          <div className="swatchDetailColorTextContainer">
-            <p className="swatchDetailColorText">{this.props.swatch.hex3}</p>
-          </div>
+        <div id="swatchDetailOptionsContainer">
+        </div>
 
-          <div id="swatchPaginationContainer">
-            <div className="swatchPaginationButton" onClick={this.handleSwatchClear}>Clear Selection</div>
-          </div>
+        <div id="swatchDetailClearContainer">
+          <div id="swatchDetailClearButton" onClick={this.handleSwatchClear}>Clear Selection</div>
+        </div>
       </div>
     );
   }

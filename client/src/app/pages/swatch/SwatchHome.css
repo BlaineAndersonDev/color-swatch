@@ -17,7 +17,7 @@
     align-items: center;
     height: 100%;
     width: 100%;
-    flex: 1 1 calc(15% - 15px);
+    flex: 1 1 calc(25%);
   }
   #SwatchHomeListContainer {
     display: flex;
@@ -27,6 +27,6 @@
     align-items: center;
     height: 100%;
     width: 100%;
-    flex: 1 1 calc(80% - 15px);
+    flex: 1 1 calc(75%);
   }
 }
