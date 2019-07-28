@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './SwatchHome.css';
 import axios from 'axios';
+import SwatchIndividual from './SwatchIndividual.js';
 
 class SwatchHome extends Component {
   constructor(props){
@@ -38,7 +39,12 @@ class SwatchHome extends Component {
     if (this.state.swatches.length >= 1) {
       swatchDisplay = (
         <div id="homeBox">
-          <p>{this.state.swatches[0].hex1}</p>
+          {this.state.swatches.map((swatch, index) =>
+            <SwatchIndividual
+              key={swatch.id}
+              swatch={swatch}
+            />
+          )}
         </div> // End Display
       )
     } else {
