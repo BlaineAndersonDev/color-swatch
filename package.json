@@ -1,5 +1,5 @@
 {
-  "name": "color-swatch",
+  "name": "swatch",
   "version": "1.0.0",
   "main": "server.js",
   "repository": "https://github.com/BlaineAndersonDev/color-swatch.git",

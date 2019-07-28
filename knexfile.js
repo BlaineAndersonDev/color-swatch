@@ -2,7 +2,7 @@ module.exports = {
 
   mocha: {
     client: 'pg',
-    connection: 'color-swatch-mocha',
+    connection: 'swatch-mocha',
     migrations: {
       directory: __dirname + '/db/migrations'
     },
@@ -14,7 +14,7 @@ module.exports = {
   development: {
     client: 'pg',
     connection: {
-      database: 'color-swatch-dev'
+      database: 'swatch-dev'
     },
     migrations: {
         directory: __dirname + '/db/migrations',

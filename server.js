@@ -104,6 +104,6 @@ app.use(function(err, req, res, next) {
 // Final Steps =========================
 // =====================================
 // Tells the app what port to listen on and the NODE_ENV. Upon listening it will display a console log. Upon close it will close and exit the server process.
-app.listen(port, () => console.log('Color-Swatch Server is listening on port ' + port + ' | NODE_ENV: ' + process.env.NODE_ENV));
+app.listen(port, () => console.log('swatch Server is listening on port ' + port + ' | NODE_ENV: ' + process.env.NODE_ENV));
 // Exports the `app` to be used elsewhere in the project.
 module.exports = app
