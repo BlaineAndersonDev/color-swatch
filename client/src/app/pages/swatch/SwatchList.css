@@ -18,9 +18,21 @@
     width: 100%;
     flex: 1 1 calc(80% - 15px);
   }
-  .swatchPaginationContainer{
+  #swatchPaginationContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
   }
   .swatchPaginationButton {
+    width: 70px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     border: 2px solid transparent;
     background-color: transparent;

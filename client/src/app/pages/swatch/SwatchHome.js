@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './SwatchHome.css';
-import axios from 'axios';
 import SwatchList from './SwatchList.js';
 import SwatchSidebar from './SwatchSidebar.js';
 

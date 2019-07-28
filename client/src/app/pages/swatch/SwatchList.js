@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './SwatchList.css';
 import axios from 'axios';
 import SwatchIndividual from './SwatchIndividual.js';
+import SwatchDetail from './SwatchDetail.js';
 
 class SwatchList extends Component {
   constructor(props){
@@ -9,7 +10,9 @@ class SwatchList extends Component {
     this.state = {
       swatches: [],
       topSwatchId: 1,
-      bottomSwatchId: 12
+      bottomSwatchId: 12,
+      detailViewToggled: false,
+      detailViewSwatchIndex: null,
     };
   };
 
@@ -56,15 +59,31 @@ class SwatchList extends Component {
     };
   };
 
+  handleSwatchSelection = async (swatchIndex) => {
+    this.setState({
+      detailViewToggled: true,
+      detailViewSwatchIndex: swatchIndex
+    })
+  };
+
+  handleSwatchClear = async () => {
+    this.setState({
+      detailViewToggled: false,
+      detailViewSwatchIndex: null
+    })
+  };
+
   render() {
-    let swatchDisplay;
+    let listDisplay;
     if (this.state.swatches.length >= 1) {
-      swatchDisplay = (
+      listDisplay = (
         <div id="SwatchListBoxContainer">
           {this.state.swatches.map((swatch, index) =>
             <SwatchIndividual
               key={index}
               swatch={swatch}
+              swatchIndex={index}
+              handleSwatchSelection={this.handleSwatchSelection}
             />
           )}
         </div> // End Display
@@ -72,24 +91,40 @@ class SwatchList extends Component {
     };
 
     let swatchPagination;
-    if (this.state.topSwatchId === 1 || this.state.topSwatchId === 0) {
-      swatchPagination = (
-        <div id="swatchPaginationContainer">
-          <div className="swatchPaginationButton" onClick={(event) => this.page(event, false)}>Next </div>
-        </div>
+      if (this.state.topSwatchId === 1 || this.state.topSwatchId === 0) {
+        swatchPagination = (
+          <div id="swatchPaginationContainer">
+            <div className="swatchPaginationButton" onClick={(event) => this.page(event, false)}>Next </div>
+          </div>
+        ) // End Display
+      } else if (this.state.bottomSwatchId >= 24) {
+        swatchPagination = (
+          <div id="swatchPaginationContainer">
+            <div className="swatchPaginationButton" onClick={(event) => this.page(event, true)}>Previous </div>
+          </div>
+        ) // End Display
+      };
+
+    let viewDisplay;
+    if (this.state.detailViewToggled === true) {
+      {console.log(this.state.swatches[this.state.detailViewSwatchIndex])}
+      viewDisplay = ( //Detail View should be displayed
+          <SwatchDetail
+            swatch={this.state.swatches[this.state.detailViewSwatchIndex]}
+          />
       ) // End Display
-    } else if (this.state.bottomSwatchId >= 24) {
-      swatchPagination = (
-        <div id="swatchPaginationContainer">
-          <div className="swatchPaginationButton" onClick={(event) => this.page(event, true)}>Previous </div>
+    } else { //List View should be displayed
+      viewDisplay = (
+        <div className="SwatchListBoxContainer">
+          {listDisplay}
+          {swatchPagination}
         </div>
-      ) // End Display
+      )
     }
 
     return (
       <div id="swatchListContainer">
-        {swatchDisplay}
-        {swatchPagination}
+        {viewDisplay}
       </div>
     );
   }

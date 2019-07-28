@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import './SwatchIndividual.css';
 
 class SwatchIndividual extends Component {
+
+  handleSwatchSelection = async () => {
+    this.props.handleSwatchSelection(this.props.swatchIndex)
+  };
+
   render() {
     let hexStyle3 = {
       background: this.props.swatch.hex3
@@ -9,13 +14,11 @@ class SwatchIndividual extends Component {
 
     return (
       <div id="swatchIndvContainer">
-
-          <div className="swatchIndvColorDisplay" style={hexStyle3}>
-          </div>
-          <div className="swatchIndvColorTextContainer">
-            <p className="swatchIndvColorText">{this.props.swatch.hex3}</p>
-          </div>
-
+        <div onClick={this.handleSwatchSelection} className="swatchIndvColorDisplay" style={hexStyle3}>
+        </div>
+        <div className="swatchIndvColorTextContainer">
+          <p className="swatchIndvColorText">{this.props.swatch.hex3}</p>
+        </div>
       </div>
     );
   }
