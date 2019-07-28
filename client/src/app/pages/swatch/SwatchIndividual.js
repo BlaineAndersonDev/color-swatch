@@ -7,14 +7,13 @@ class SwatchIndividual extends Component {
       background: this.props.swatch.hex3
     }
 
-
     return (
       <div id="swatchIndvContainer">
 
           <div className="swatchIndvColorDisplay" style={hexStyle3}>
           </div>
           <div className="swatchIndvColorTextContainer">
-            <p className="swatchIndvColorText">Cinque Terre</p>
+            <p className="swatchIndvColorText">{this.props.swatch.hex3}</p>
           </div>
 
       </div>
