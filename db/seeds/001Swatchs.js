@@ -1,9 +1,9 @@
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('swatchs').del()
+  return knex('swatches').del()
   .then(function () {
     // Inserts seed entries
-    return knex('swatchs').insert([
+    return knex('swatches').insert([
       {
         category: 'COLOR',
         hex1: 'Hex',

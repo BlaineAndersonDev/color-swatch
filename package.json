@@ -2,7 +2,7 @@
   "name": "swatch",
   "version": "1.0.0",
   "main": "server.js",
-  "repository": "https://github.com/BlaineAndersonDev/color-swatch.git",
+  "repository": "https://github.com/BlaineAndersonDev/swatch.git",
   "author": "BlaineAndersonDev <BlaineAndersonDev@Gmail.com>",
   "license": "MIT",
   "dependencies": {

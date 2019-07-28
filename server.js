@@ -49,7 +49,7 @@ app.use(helmet())
 // =====================================
 // The app will use the required files below to generate API routes that allows the frontend to use HTTP calls (Axios) to retrieve data from the predetermined end points.
   // NOTE: Partners, Events, ect. are not listed in this section on purpose. See usersController.js for more details.
-app.use('/api/swatchs', require('./controllers/swatchController.js'));
+app.use('/api/1.0/swatches', require('./controllers/swatchController.js'));
 
 // =====================================
 // Database Setup ======================

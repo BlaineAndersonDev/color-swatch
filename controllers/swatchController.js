@@ -5,32 +5,35 @@ const moment = require('moment');
 const errorWrapper = require('./errorWrapper.js');
 
 // ======================================
-// Get all Swatchs.
-// ROUTE: GET `/api/swatchs/`
+// Get all swatches.
+// ROUTE: GET `/api/swatches/`
 swatchRouter.get('/', errorWrapper(async (req, res, next) => {
   // Knex database query.
-  const readResults = await knex('swatchs')
+  const readResults = await knex('swatches')
     .select('*')
     .orderBy('swatchId', 'asc')
     .catch((err) => { throw new Error(err) });
 
+    // Log Object for debugging.
+    console.log(readResults)
+
     // Return HTTP status and JSON results object.
     return res.status(200).json({
       success: true,
-      message: 'API returned list of all Swatchs',
+      message: 'API returned list of all swatches',
       results: readResults
     });
 }));
 //
 // // ======================================
 // // Get individual Swatch.
-// // ROUTE: GET `api/swatchs/:swatchId`
+// // ROUTE: GET `api/swatches/:swatchId`
 // swatchRouter.get('/:swatchId', errorWrapper(async (req, res, next) => {
 //   // Throw Error if body contains swatchId.
 //   if (req.body.swatchId) { throw new Error('Request body cannot contain swatchId') };
 //
 //   // Knex database query.
-//   const readResults = await knex('swatchs')
+//   const readResults = await knex('swatches')
 //     .select('*')
 //     .where({ swatchId: req.params.swatchId })
 //     .catch((err) => { throw new Error(err) });
@@ -48,13 +51,13 @@ swatchRouter.get('/', errorWrapper(async (req, res, next) => {
 //
 // // ======================================
 // // Create individual Swatch.
-// // ROUTE: POST `api/swatchs/`
+// // ROUTE: POST `api/swatches/`
 // swatchRouter.post('/', errorWrapper(async (req, res, next) => {
 //   // Throw Error if body contains swatchId.
 //   if (req.body.swatchId) { throw new Error('Request body cannot contain swatchId') };
 //
 //   // Knex database query.
-//   const createResults = await knex('swatchs')
+//   const createResults = await knex('swatches')
 //     .insert({
 //       gender: req.body.gender,
 //       birthdate: req.body.birthdate,
@@ -83,13 +86,13 @@ swatchRouter.get('/', errorWrapper(async (req, res, next) => {
 //
 // // ======================================
 // // Updates individual Swatch.
-// // ROUTE: PUT `api/swatchs/:swatchId`
+// // ROUTE: PUT `api/swatches/:swatchId`
 // swatchRouter.put('/:swatchId', errorWrapper(async (req, res, next) => {
 //   // Throw Error if body contains swatchId.
 //   if (req.body.swatchId) { throw new Error('Request body cannot contain swatchId') };
 //
 //   // Knex database query.
-//   const updateResults = await knex('swatchs')
+//   const updateResults = await knex('swatches')
 //     .where({ swatchId: req.params.swatchId })
 //     .update({
 //       gender: req.body.gender,
@@ -121,10 +124,10 @@ swatchRouter.get('/', errorWrapper(async (req, res, next) => {
 //
 // // ======================================
 // // Deletes individual Swatch.
-// // ROUTE: DELETE `api/swatchs/:swatchId`
+// // ROUTE: DELETE `api/swatches/:swatchId`
 // swatchRouter.delete('/:swatchId', errorWrapper(async (req, res, next) => {
 //   // Knex database query.
-//   const deleteResults = await knex('swatchs')
+//   const deleteResults = await knex('swatches')
 //     .where({ swatchId: req.params.swatchId })
 //     .del()
 //     .returning('*')

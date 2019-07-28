@@ -13,8 +13,8 @@ class Nav extends Component {
         <Link to={'./'} className="navLink">
           Home
         </Link>
-        <Link to={'./message'} className="navLink">
-          Messages
+        <Link to={'./swatch'} className="navLink">
+          Swatches
         </Link>
       </div>
 

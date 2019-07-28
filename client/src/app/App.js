@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import Home from './pages/Home.js';
-import CSHome from './pages/colorSwatch/CSHome.js';
+import SwatchHome from './pages/swatch/SwatchHome.js';
 import Nav from './pages/Nav.js';
 import Footer from './pages/Footer.js';
 import './App.css';
@@ -18,7 +18,7 @@ class App extends Component {
 
           <div id="appBody">
             <Route exact path='/' component={Home}/>
-            <Route exact path='/swatch' component={CSHome}/>
+            <Route exact path='/swatch' component={SwatchHome}/>
           </div>
 
           <div id="appFooter">
