@@ -47,6 +47,10 @@ class SwatchHome extends Component {
     })
     .then(response => {
       this.setState({
+        detailViewToggled: false,
+        detailViewSelectedSwatch: null
+      })
+      this.setState({
         detailViewToggled: true,
         detailViewSelectedSwatch: response.data.results
       })
@@ -68,7 +72,9 @@ class SwatchHome extends Component {
       this.setState({
         swatches: response.data.results,
         topSwatchId: top,
-        bottomSwatchId: bottom
+        bottomSwatchId: bottom,
+        detailViewToggled: false,
+        detailViewSelectedSwatch: null
       })
     })
   };
@@ -88,7 +94,9 @@ class SwatchHome extends Component {
         swatches: response.data.results,
         topSwatchId: 1,
         bottomSwatchId: 12,
-        categoryIsSelected: true
+        categoryIsSelected: true,
+        detailViewToggled: false,
+        detailViewSelectedSwatch: null
       })
     })
   };
