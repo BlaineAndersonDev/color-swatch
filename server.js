@@ -18,9 +18,7 @@ const cors = require('cors');
 const helmet = require('helmet')
 // HTTP request logger
 // https://github.com/expressjs/morgan
-if (process.env.NODE_ENV === 'development') {
-  const morgan = require('morgan')
-}
+const morgan = require('morgan')
 
 // =====================================
 // Initial Setup =======================

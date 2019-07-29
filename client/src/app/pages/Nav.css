@@ -1,8 +1,8 @@
 #navContainer{
-  background: var(--dev-background);
+  background: rgb(79, 79, 79);
   height: 60px;
   display: flex;
-  border-bottom: var(--dev-borders) 3px solid;
+  border-bottom: black 3px solid;
 }
 .navBox{
   flex-grow: 1;
@@ -22,13 +22,12 @@
   max-height: 40px;
   max-width: 40px;
   padding: 5px;
-  border: 1px solid var(--dev-background);
+  border: 1px solid rgb(79, 79, 79);
   transition: all 0.35s ease-in-out;
   background-color: transparent;
   border-radius: 15px;
 }
 .logoIcon:hover{
-  background: var(--dev-highlight);
   border: rgb(24, 24, 24) 1px solid;
 }
 .navTitle{
