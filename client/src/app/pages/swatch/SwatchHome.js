@@ -135,6 +135,7 @@ class SwatchHome extends Component {
         <SwatchSidebar
           handleCategorySelection={this.handleCategorySelection}
           getAllSwatches={this.getAllSwatches}
+          handleSwatchSelection={this.handleSwatchSelection}
         />
       </div> // End Display
     )

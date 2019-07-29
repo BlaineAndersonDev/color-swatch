@@ -7,15 +7,19 @@ class SwatchSidebar extends Component {
     this.props.handleCategorySelection(event, category)
   };
 
-  handleAllCategories = async (event, category) => {
+  handleAllCategories = async () => {
     this.props.getAllSwatches(1, 12, false)
+  };
+
+  handleRandom = async () => {
+    this.props.handleSwatchSelection(Math.floor(Math.random() * 21))
   };
 
   render() {
     return (
       <div id="swatchSidebarContainer">
         <div id="swatchSidebarRandomContainer">
-          <div className="sidebarRandom">Random Color</div>
+          <div onClick={this.handleRandom} className="sidebarRandom">Random Color</div>
         </div>
         <div id="swatchSidebarColorsContainer">
           <div onClick={this.handleAllCategories} className="sidebarColor sbcAll">All Colors</div>
