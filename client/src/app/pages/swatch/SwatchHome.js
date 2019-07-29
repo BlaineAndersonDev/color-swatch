@@ -9,21 +9,27 @@ class SwatchHome extends Component {
   constructor(props){
     super(props);
     this.state = {
-      blank: null,
       detailViewToggled: false,
       detailViewSelectedSwatch: null,
-      category: null
+      category: null,
+      swatches: [],
+      topSwatchId: 1,
+      bottomSwatchId: 12
     };
   };
 
-  handleCategorySelection = async (event, category) => {
-    await this.setState({
-      category: category
-    })
-  };
-
-  handleSwatchSelection = async (swatchId) => {
-    await this.getSwatchDetail(swatchId)
+  // Async/Await Function: Runs upon Component load. It runs our 'getAllSwatches' function to display all the current swatches.
+  async componentDidMount() {
+    if (this.category) {
+      try {
+        await this.handleCategorySelection(this.specificSwatchCategory);
+      } catch (error) { console.log(error) }
+    } else {
+      try {
+        this.timer = setTimeout(() => {}, 1000);
+        await this.getAllSwatches(this.state.topSwatchId, this.state.bottomSwatchId, true);
+      } catch (error) { console.log(error) }
+    };
   };
 
   handleSwatchClear = async () => {
@@ -34,7 +40,7 @@ class SwatchHome extends Component {
   };
 
   // Async/Await Function: Retreives all 'swatches' from our API.
-  getSwatchDetail = async (swatchId) => {
+  handleSwatchSelection = async (swatchId) => {
     await axios.get(`/api/1.0/swatches/${swatchId}`, null)
     .catch(error => {
       console.warn(error);
@@ -45,6 +51,59 @@ class SwatchHome extends Component {
         detailViewSelectedSwatch: response.data.results
       })
     })
+  };
+
+  // Async/Await Function: Retreives all 'swatches' from our API.
+  getAllSwatches = async (top, bottom, previous) => {
+    await axios.get(`/api/1.0/swatches/paginate`, {
+      params: {
+        newTopSwatchId: top,
+        newBottomSwatchId: bottom
+      }
+    })
+    .catch(error => {
+      console.warn(error);
+    })
+    .then(response => {
+      this.setState({
+        swatches: response.data.results,
+        topSwatchId: top,
+        bottomSwatchId: bottom
+      })
+    })
+  };
+
+  // Async/Await Function: Retreives all specific colored 'swatches' from our API.
+  handleCategorySelection = async (event, category) => {
+    await axios.get(`/api/1.0/swatches/category`, {
+      params: {
+        category: category
+      }
+    })
+    .catch(error => {
+      console.warn(error);
+    })
+    .then(response => {
+      this.setState({
+        swatches: response.data.results,
+        topSwatchId: 1,
+        bottomSwatchId: 12,
+        categoryIsSelected: true
+      })
+    })
+  };
+
+  // Async/Await Function: Retreives all 'swatches' from our API.
+  page = async (event, previous) => {
+    if (previous === true) { //previous
+      const newTopSwatchId = this.state.topSwatchId - 12;
+      const newBottomSwatchId = this.state.bottomSwatchId - 12;
+      this.getAllSwatches(newTopSwatchId, newBottomSwatchId, previous);
+    } else { //next
+      const newTopSwatchId = this.state.topSwatchId + 12;
+      const newBottomSwatchId = this.state.bottomSwatchId + 12;
+      this.getAllSwatches(newTopSwatchId, newBottomSwatchId, previous);
+    };
   };
 
   render() {
@@ -61,7 +120,10 @@ class SwatchHome extends Component {
         <div id="SwatchHomeListContainer">
           <SwatchList
             handleSwatchSelection={this.handleSwatchSelection}
-            category={this.state.category}
+            swatches={this.state.swatches}
+            topSwatchId={this.state.topSwatchId}
+            bottomSwatchId={this.state.bottomSwatchId}
+            page={this.page}
           />
         </div> // End Display
       )
