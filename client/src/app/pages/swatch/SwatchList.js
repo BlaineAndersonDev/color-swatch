@@ -81,9 +81,6 @@ class SwatchList extends Component {
   };
 
   render() {
-    if (this.props.category != null) {
-      this.getSpecificSwatches(this.props.category);
-    }
 
     let listDisplay;
     if (this.state.swatches.length >= 1) {
@@ -114,8 +111,6 @@ class SwatchList extends Component {
           </div>
         ) // End Display
       };
-
-
 
     return (
       <div id="swatchListContainer">
