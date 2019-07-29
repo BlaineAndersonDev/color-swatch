@@ -19,7 +19,6 @@
     align-items: center;
     flex-direction: row;
     flex-wrap: nowrap;
-    border: red solid 1px;
   }
   .logoBox{
     justify-content: flex-start;
