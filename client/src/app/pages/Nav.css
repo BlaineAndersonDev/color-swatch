@@ -31,3 +31,18 @@
   background: var(--dev-highlight);
   border: rgb(24, 24, 24) 1px solid;
 }
+.navTitle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+}
+#nc1 { color: rgb(52, 134, 236) }
+#nc2 { color: rgb(40, 176, 65) }
+#nc3 { color: rgb(193, 26, 61) }
+#nc4 { color: rgb(228, 226, 45) }
+#nc5 { color: rgb(149, 85, 214) }
+#nc6 { color: white }

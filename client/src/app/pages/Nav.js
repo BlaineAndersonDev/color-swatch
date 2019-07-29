@@ -17,7 +17,11 @@ class Nav extends Component {
         </Link>
       </div>
 
-      <div className="navBox"></div>
+      <div className="navBox">
+        <div className="navTitle">
+          <span id="nc1">C</span><span id="nc2">o</span><span id="nc3">l</span><span id="nc4">o</span><span id="nc5">r</span><span id="nc6">-Swatch</span>
+        </div>
+      </div>
 
       <div className="navBox"></div>
 
