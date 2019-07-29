@@ -11,16 +11,23 @@ class SwatchHome extends Component {
     this.state = {
       blank: null,
       detailViewToggled: false,
-      detailViewSelectedSwatch: null
+      detailViewSelectedSwatch: null,
+      category: null
     };
   };
 
+  handleCategorySelection = async (event, category) => {
+    await this.setState({
+      category: category
+    })
+  };
+
   handleSwatchSelection = async (swatchId) => {
-    this.getSwatchDetail(swatchId)
+    await this.getSwatchDetail(swatchId)
   };
 
   handleSwatchClear = async () => {
-    this.setState({
+    await this.setState({
       detailViewToggled: false,
       detailViewSelectedSwatch: null
     })
@@ -54,6 +61,7 @@ class SwatchHome extends Component {
         <div id="SwatchHomeListContainer">
           <SwatchList
             handleSwatchSelection={this.handleSwatchSelection}
+            category={this.state.category}
           />
         </div> // End Display
       )
@@ -61,7 +69,9 @@ class SwatchHome extends Component {
 
     let sidebarDisplay = (
       <div id="SwatchHomeSidebarContainer">
-        <SwatchSidebar />
+        <SwatchSidebar
+          handleCategorySelection={this.handleCategorySelection}
+        />
       </div> // End Display
     )
 

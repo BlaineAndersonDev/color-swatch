@@ -27,8 +27,8 @@ swatchRouter.get('/', errorWrapper(async (req, res, next) => {
 
 // ======================================
 // Gets defined selection of Swatches.
-// ROUTE: POST `api/1.0/swatches/forward`
-swatchRouter.get('/test', errorWrapper(async (req, res, next) => {
+// ROUTE: POST `api/1.0/swatches/paginate`
+swatchRouter.get('/paginate', errorWrapper(async (req, res, next) => {
   const readResults = await knex('swatches')
     .where('swatchId', '>=', req.query.newTopSwatchId)
     .andWhere('swatchId', '<=', req.query.newBottomSwatchId)
@@ -44,6 +44,31 @@ swatchRouter.get('/test', errorWrapper(async (req, res, next) => {
   return res.status(200).json({
     success: true,
     message: 'API returned list of all swatches',
+    results: readResults
+  });
+}));
+
+// ======================================
+// Gets specific category of Swatches.
+// ROUTE: POST `api/1.0/swatches/category`
+swatchRouter.get('/category', errorWrapper(async (req, res, next) => {
+  console.log(req.query.category)
+
+  // Knex database query.
+  const readResults = await knex('swatches')
+    .where({ category: req.query.category })
+    .select('*')
+    .orderBy('swatchId', 'asc')
+    .catch((err) => { throw new Error(err) });
+
+  // Log Object for debugging.
+  // console.log('TEST')
+  // console.log(readResults)
+
+  // Return HTTP status and JSON results object.
+  return res.status(200).json({
+    success: true,
+    message: `API returned list of ${req.query.category} swatches`,
     results: readResults
   });
 }));

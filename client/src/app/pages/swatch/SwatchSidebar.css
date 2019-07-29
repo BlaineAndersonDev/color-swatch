@@ -55,6 +55,9 @@
     font-size: 1em;
     color: black;
   }
+  .sbcAll:focus, .sbcAll:hover{
+    color: darkgray;
+  }
   .sbcRed:focus, .sbcRed:hover{
     color: red;
   }
