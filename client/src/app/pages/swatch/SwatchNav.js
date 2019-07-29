@@ -19,7 +19,7 @@ class SwatchNav extends Component {
 
       <div className="navBox">
         <div className="navTitle">
-          <span id="nc1">C</span><span id="nc2">o</span><span id="nc3">l</span><span id="nc4">o</span><span id="nc5">r</span><span id="nc6">-Swatch</span>
+          <p id="nc1">C</p><p id="nc2">o</p><p id="nc3">l</p><p id="nc4">o</p><p id="nc5">r</p><p id="nc6">-Swatch</p>
         </div>
       </div>
 
