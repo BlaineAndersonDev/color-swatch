@@ -34,6 +34,36 @@ class SwatchDetail extends Component {
         </div>
 
         <div id="swatchDetailOptionsContainer">
+          <div className="swatchDetailOptionsBox">
+            <div className="swatchDetailOptionColorDisplay" style={hexStyle1}></div>
+            <div className="swatchDetailOptionTextContainer">
+              <p className="swatchDetailOptionText">{this.props.swatch.hex1}</p>
+            </div>
+          </div>
+          <div className="swatchDetailOptionsBox">
+            <div className="swatchDetailOptionColorDisplay" style={hexStyle2}></div>
+            <div className="swatchDetailOptionTextContainer">
+              <p className="swatchDetailOptionText">{this.props.swatch.hex2}</p>
+            </div>
+          </div>
+          <div className="swatchDetailOptionsBox">
+            <div className="swatchDetailOptionColorDisplay" style={hexStyle3}></div>
+            <div className="swatchDetailOptionTextContainer">
+              <p className="swatchDetailOptionText">{this.props.swatch.hex3}</p>
+            </div>
+          </div>
+          <div className="swatchDetailOptionsBox">
+            <div className="swatchDetailOptionColorDisplay" style={hexStyle4}></div>
+            <div className="swatchDetailOptionTextContainer">
+              <p className="swatchDetailOptionText">{this.props.swatch.hex4}</p>
+            </div>
+          </div>
+          <div className="swatchDetailOptionsBox">
+            <div className="swatchDetailOptionColorDisplay" style={hexStyle5}></div>
+            <div className="swatchDetailOptionTextContainer">
+              <p className="swatchDetailOptionText">{this.props.swatch.hex5}</p>
+            </div>
+          </div>
         </div>
 
         <div id="swatchDetailClearContainer">
