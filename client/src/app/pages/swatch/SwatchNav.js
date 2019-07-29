@@ -17,14 +17,6 @@ class SwatchNav extends Component {
         </Link>
       </div>
 
-      <div className="navBox">
-        <div className="navTitle">
-          <p id="nc1">C</p><p id="nc2">o</p><p id="nc3">l</p><p id="nc4">o</p><p id="nc5">r</p><p id="nc6">-Swatch</p>
-        </div>
-      </div>
-
-      <div className="navBox"></div>
-
     </div>
     );
   }
