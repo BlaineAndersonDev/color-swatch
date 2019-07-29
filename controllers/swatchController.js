@@ -36,10 +36,6 @@ swatchRouter.get('/paginate', errorWrapper(async (req, res, next) => {
     .orderBy('swatchId', 'asc')
     .catch((err) => { throw new Error(err) });
 
-  // Log Object for debugging.
-  // console.log('TEST')
-  // console.log(readResults)
-
   // Return HTTP status and JSON results object.
   return res.status(200).json({
     success: true,
@@ -52,7 +48,6 @@ swatchRouter.get('/paginate', errorWrapper(async (req, res, next) => {
 // Gets specific category of Swatches.
 // ROUTE: POST `api/1.0/swatches/category`
 swatchRouter.get('/category', errorWrapper(async (req, res, next) => {
-  console.log(req.query.category)
 
   // Knex database query.
   const readResults = await knex('swatches')
@@ -60,10 +55,6 @@ swatchRouter.get('/category', errorWrapper(async (req, res, next) => {
     .select('*')
     .orderBy('swatchId', 'asc')
     .catch((err) => { throw new Error(err) });
-
-  // Log Object for debugging.
-  // console.log('TEST')
-  // console.log(readResults)
 
   // Return HTTP status and JSON results object.
   return res.status(200).json({

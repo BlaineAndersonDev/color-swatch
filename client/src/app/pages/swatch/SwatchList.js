@@ -20,19 +20,19 @@ class SwatchList extends Component {
     };
 
     let swatchPagination;
-      if (this.props.topSwatchId === 1 || this.props.topSwatchId === 0) {
-        swatchPagination = (
-          <div id="swatchPaginationContainer">
-            <div className="swatchPaginationButton" onClick={(event) => this.props.page(event, false)}>Next </div>
-          </div>
-        ) // End Display
-      } else if (this.props.bottomSwatchId >= 24) {
-        swatchPagination = (
-          <div id="swatchPaginationContainer">
-            <div className="swatchPaginationButton" onClick={(event) => this.props.page(event, true)}>Previous </div>
-          </div>
-        ) // End Display
-      };
+    if (this.props.topSwatchId === 1 || this.props.topSwatchId === 0) {
+      swatchPagination = (
+        <div id="swatchPaginationContainer">
+          <div className="swatchPaginationButton" onClick={(event) => this.props.page(event, false)}>Next </div>
+        </div>
+      ) // End Display
+    } else if (this.props.bottomSwatchId >= 24) {
+      swatchPagination = (
+        <div id="swatchPaginationContainer">
+          <div className="swatchPaginationButton" onClick={(event) => this.props.page(event, true)}>Previous </div>
+        </div>
+      ) // End Display
+    };
 
     return (
       <div id="swatchListContainer">

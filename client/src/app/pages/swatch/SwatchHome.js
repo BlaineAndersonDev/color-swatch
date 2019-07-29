@@ -124,6 +124,7 @@ class SwatchHome extends Component {
             topSwatchId={this.state.topSwatchId}
             bottomSwatchId={this.state.bottomSwatchId}
             page={this.page}
+            category={this.category}
           />
         </div> // End Display
       )
