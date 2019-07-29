@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './Nav.css';
+import './SwatchNav.css';
 
-class Nav extends Component {
+class SwatchNav extends Component {
   render() {
     return (
     <div id="navContainer">
@@ -30,4 +30,4 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+export default SwatchNav;

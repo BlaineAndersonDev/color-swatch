@@ -4,6 +4,7 @@ import axios from 'axios';
 import SwatchList from './SwatchList.js';
 import SwatchSidebar from './SwatchSidebar.js';
 import SwatchDetail from './SwatchDetail.js';
+import SwatchNav from './SwatchNav.js';
 
 class SwatchHome extends Component {
   constructor(props){
@@ -149,9 +150,12 @@ class SwatchHome extends Component {
     )
 
     return (
-      <div id="swatchHomeContainer">
-        {sidebarDisplay}
-        {viewDisplay}
+      <div id="swatchDisplayContainer">
+        <SwatchNav />
+        <div id="swatchHomeContainer">
+          {sidebarDisplay}
+          {viewDisplay}
+        </div>
       </div>
     );
   }
