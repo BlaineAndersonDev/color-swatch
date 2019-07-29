@@ -1,0 +1,48 @@
+#navContainer{
+  background: var(--dev-background);
+  height: 60px;
+  display: flex;
+  border-bottom: var(--dev-borders) 3px solid;
+}
+.navBox{
+  flex-grow: 1;
+  display: flex;
+}
+.logoBox{
+  justify-content: flex-start;
+}
+.navLink{
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.25s linear;
+}
+.logoIcon{
+  max-height: 40px;
+  max-width: 40px;
+  padding: 5px;
+  border: 1px solid var(--dev-background);
+  transition: all 0.35s ease-in-out;
+  background-color: transparent;
+  border-radius: 15px;
+}
+.logoIcon:hover{
+  background: var(--dev-highlight);
+  border: rgb(24, 24, 24) 1px solid;
+}
+.navTitle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+}
+#nc1 { color: rgb(52, 134, 236) }
+#nc2 { color: rgb(40, 176, 65) }
+#nc3 { color: rgb(193, 26, 61) }
+#nc4 { color: rgb(228, 226, 45) }
+#nc5 { color: rgb(149, 85, 214) }
+#nc6 { color: white }

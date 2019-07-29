@@ -1,0 +1,38 @@
+{
+  "name": "swatch",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "https://github.com/BlaineAndersonDev/swatch.git",
+  "author": "BlaineAndersonDev <BlaineAndersonDev@Gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.18.0",
+    "knex": "0.16.5",
+    "moment": "2.20.1",
+    "node": "^12.4.0",
+    "pg": "^7.11.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "concurrently": "^4.1.0",
+    "mocha": "^6.1.4",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.1"
+  },
+  "scripts": {
+    "start": "NODE_ENV=development nodemon --exec 'heroku local' --signal SIGTERM",
+    "dev": "NODE_ENV=development concurrently -n Client,Server -c cyan,magenta \"cd client && PORT=3000 yarn start\" \"PORT=5000 nodemon ./server.js \"",
+    "mocha": "mocha --exit",
+    "clean": "rm -rf build && mkdir build",
+    "build-server": "babel -d ./build ./server -s",
+    "build": "yarn run clean && yarn run build-server",
+    "begin": "node ./build/index.js",
+    "heroku-postbuild": "cd client && yarn install && yarn run build"
+  },
+  "directories": {
+    "test": "tests"
+  }
+}
